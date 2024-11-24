@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>spring-boot-test</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="simple.min.css">
+    </head>
+    <body>
+        <header>
+          <h1><span th:text="'List of books'"></span></h1>
+        </header>
+        <main>
+          <article>
+      	    <div th:if="${ not#lists.isEmpty(books) }">
+              <table>
+                <tr>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Price</th>
+                  <th>Publish Date</th>
+                </tr>
+                <tr th:each="book : ${books}">
+                  <td th:text="${book.title}"></td>
+                  <td th:text="${book.author}"></td>
+                  <td th:text="${book.price}"></td>
+                  <td th:text="${book.publishDate}"></td>
+                </tr>
+              </table>
+            </div>
+          </article>
+        </main>
+        <footer>
+          <p><a href="https://github.com/n-Arno/spring-boot-test">Spring Boot Test App</a></p>
+        </footer>
+    </body>
+</html>
